@@ -19,9 +19,6 @@ import org.springframework.web.filter.CorsFilter;
 
 import java.util.List;
 
-import static com.itutorix.workshop.user.Permission.*;
-import static com.itutorix.workshop.user.Role.ADMIN;
-import static com.itutorix.workshop.user.Role.MANAGER;
 import static org.springframework.http.HttpMethod.*;
 
 @Configuration
@@ -58,20 +55,6 @@ public class SecurityConfiguration {
                                 "/webjars/**",
                                 "/swagger-ui.html"
                         ).permitAll()
-
-
-                        .requestMatchers("/api/v1/management/**").hasAnyRole(ADMIN.name(), MANAGER.name())
-                        .requestMatchers(GET, "/api/v1/management/**").hasAnyAuthority(ADMIN_READ.name(), MANAGER_READ.name())
-                        .requestMatchers(PUT, "/api/v1/management/**").hasAnyAuthority(ADMIN_UPDATE.name(), MANAGER_UPDATE.name())
-                        .requestMatchers(DELETE, "/api/v1/management/**").hasAnyAuthority(ADMIN_DELETE.name(), MANAGER_DELETE.name())
-                        .requestMatchers(POST, "/api/v1/management/**").hasAnyAuthority(ADMIN_CREATE.name(), MANAGER_CREATE.name())
-
-                      /*  .requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name())
-                        .requestMatchers(GET, "/api/v1/admin/**").hasAuthority(ADMIN_READ.name())
-                        .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name())
-                        .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name())
-                        .requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADMIN_CREATE.name())*/
-
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

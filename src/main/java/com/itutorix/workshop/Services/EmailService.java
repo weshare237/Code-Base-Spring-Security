@@ -57,9 +57,9 @@ public class EmailService {
         Context context = new Context();
         context.setVariables(properties);
 
-        helper.setFrom("fopaduclair2000@gmail.com");
+        helper.setFrom("hackverse@gmail.com");
         helper.setTo(to);
-        helper.setSubject("Welcome to Ubuntu Assist");
+        helper.setSubject("Welcome to HackVerse");
 
         String template = templateEngine.process(templateName, context);
 

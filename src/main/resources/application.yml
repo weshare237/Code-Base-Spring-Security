@@ -4,9 +4,9 @@ server:
 # Database configurations
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5332/ubuntu_assist
-    username: itutorix
-    password: password
+    url: jdbc:postgresql://localhost:5432/general_db
+    username: talanta
+    password: talanta
   jpa:
     hibernate:
       ddl-auto: create-drop

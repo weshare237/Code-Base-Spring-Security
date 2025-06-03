@@ -1,23 +1,30 @@
 services:
-  db:
-    container_name: postgres
+  postgresql:
+    container_name: ms_pg_sql
     image: postgres
     environment:
-      POSTGRES_USER: itutorix
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: talanta
+      POSTGRES_PASSWORD: talanta
       PGDATA: /data/postgres
-      POSTGRES_DB: ubuntu_assist
     volumes:
-      - db:/data/postgres
+      - postgres:/data/postgres
     ports:
-      - "5332:5432"
+      - "5432:5432"
     networks:
-      - db
+      - spring-general
     restart: unless-stopped
 
+  mail-dev:
+    container_name: mail-dev
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+
 networks:
-  db:
+  spring-general:
     driver: bridge
 
 volumes:
-  db:
+  postgres:
+    driver: local

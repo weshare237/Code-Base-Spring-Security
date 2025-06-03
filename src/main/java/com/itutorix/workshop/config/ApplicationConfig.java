@@ -1,6 +1,6 @@
 package com.itutorix.workshop.config;
 
-import com.itutorix.workshop.Auditing.ApplicationAuditAware;
+import com.itutorix.workshop.auditing.ApplicationAuditAware;
 import com.itutorix.workshop.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

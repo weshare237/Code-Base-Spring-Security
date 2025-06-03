@@ -1,4 +1,4 @@
-package com.itutorix.workshop.Auditing;
+package com.itutorix.workshop.auditing;
 
 import com.itutorix.workshop.user.User;
 import org.springframework.data.domain.AuditorAware;
